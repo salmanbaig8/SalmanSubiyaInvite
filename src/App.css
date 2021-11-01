@@ -41,10 +41,24 @@
 }
 
 /* overlay top */
-.container {
+/* .container {
   position: relative;
   width: 100%;
   height: auto;
+} */
+
+/* .video {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+  } */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top:20px;
 }
 
 .image {
@@ -64,6 +78,7 @@
   height: 0;
   transition: .5s ease;
   opacity: 0.8;
+  top:20px;
 }
 
 .container:hover .overlay {
@@ -690,3 +705,204 @@ body {
         width: 60px;
     }
 }
+
+/* Bottom left text */
+.bottom-left {
+    position: fixed;
+    bottom: 8px;
+    left: 16px;
+  }
+  
+  /* Top left text */
+  .top-left {
+    position: fixed;
+    top: 35px;
+    left: 16px;
+  }
+  
+  /* Top right text */
+  .top-right {
+    position: fixed;
+    top: 35px;
+    right: 16px;
+  }
+  
+  /* Bottom right text */
+  .bottom-right {
+    position: fixed;
+    bottom: 8px;
+    right: 16px;
+  }
+
+  /* gmap button */
+  .button {
+    background: url(https://images.unsplash.com/photo-1526500141527-9e9b0ae48227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+    /* background-color: #4CAF50; Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color:#ef8f8f; 
+    color: white; 
+    border: 2px solid orchid;
+    border-radius: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+  }
+  
+  .button1:hover {
+    background-color: honeydew;
+    color: moccasin;
+  }
+
+  /* valima gmap */
+  .button2 {
+    background: url(https://images.unsplash.com/photo-1526500141527-9e9b0ae48227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+    /* background-color:midnightblue;  */
+    color: white; 
+    border: 2px solid orchid;
+    border-radius: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+  }
+  
+  .button2:hover {
+    background-color: honeydew;
+    color:  moccasin;
+  }
+
+  /* date nikah button */
+  .nbutton {
+    display: inline-block;
+    border-radius: 200px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0px;
+  }
+  
+  .nbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .nbutton span:after {
+    content: '\00bb   11-NOV-2021';
+    position: relative;
+    opacity: 0;
+    top: 0;
+    right: -5px;
+    transition: 0.5s;
+  }
+  
+  .nbutton:hover span {
+    padding-right: 20px;
+  }
+  
+  .nbutton:hover span:after {
+    opacity: 1;
+    right: 20;
+  }
+  
+  /* data valima button */
+  /* date button */
+  .nbutton {
+    display: inline-block;
+    border-radius: 200px;
+    background: url(https://images.unsplash.com/photo-1526500141527-9e9b0ae48227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+    /* background-color: #f4511e; */
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 250px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0px;
+  }
+  
+  .nbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .nbutton span:after {
+    content: '\00bb   11-NOV-2021';
+    position: relative;
+    opacity: 0;
+    top: 0;
+    right: -5px;
+    transition: 0.5s;
+  }
+  
+  .nbutton:hover span {
+    padding-right: 20px;
+  }
+  
+  .nbutton:hover span:after {
+    opacity: 1;
+    right: 20;
+  }
+
+  /* data valima button */
+  /* date button */
+  .vbutton {
+    display: inline-block;
+    border-radius: 200px;
+    background: url(https://images.unsplash.com/photo-1526500141527-9e9b0ae48227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+    /* background-color: #f4511e; */
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 8.5px;
+    width: 250px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0px;
+  }
+  
+  .vbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .vbutton span:after {
+    content: '\00bb   14-NOV-2021';
+    position: relative;
+    opacity: 0;
+    top: 0;
+    right: -5px;
+    transition: 0.5s;
+  }
+  
+  .vbutton:hover span {
+    padding-right: 20px;
+  }
+  
+  .vbutton:hover span:after {
+    opacity: 1;
+    right: 20;
+  }
