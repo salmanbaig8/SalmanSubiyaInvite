@@ -58,7 +58,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  top:20px;
+  /* top:20px; */
 }
 
 .image {
@@ -78,7 +78,7 @@
   height: 0;
   transition: .5s ease;
   opacity: 0.8;
-  top:20px;
+  /* top:20px; */
 }
 
 .container:hover .overlay {
@@ -103,59 +103,6 @@
   font-weight: bold;
 }
 
-
-/* body {
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  position: relative;
-  margin: 0;
-}
-
-audio {
-  display: none;
-}
-
-p {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: rgba(238, 238, 238, 0.6);
-  font-size: 20px;
-}
-
-button {
-  font-size: 16px;
-  color: #eee;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  padding: 15px;
-  border: none;
-  border-radius: 2px;
-  outline: none;
-  background: rgba(115, 67, 167, 0.8);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  opacity: 0.8;
-  cursor: pointer;
-  transition: all 0.4s ease-out;
-}
-
-button.fade:hover {
-  opacity: 0.8;
-}
-
-.fade {
-  opacity: 0.2;
-  top: 0;
-  left: 0;
-  transform: translate(0, 0);
-} */
-
 /* flower */
 *,
 *::after,
@@ -165,17 +112,6 @@ button.fade:hover {
     box-sizing: border-box;
 }
 
-/* body {
-    background-color: #222;
-    background-image: radial-gradient(circle at center, #222, #111 300px);
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 420px;
-    overflow: hidden;
-} */
 
 .neonText {
   color:darkmagenta;
@@ -757,6 +693,8 @@ body {
     border-radius: 200px;
     font-family: Arial, Helvetica, sans-serif;
     font-style: oblique;
+    font-size: 15px;
+    width: 150px;
   }
   
   .button1:hover {
@@ -773,6 +711,8 @@ body {
     border-radius: 200px;
     font-family: Arial, Helvetica, sans-serif;
     font-style: oblique;
+    font-size: 15px;
+    width: 150px;
   }
   
   .button2:hover {
@@ -781,128 +721,91 @@ body {
   }
 
   /* date nikah button */
-  .nbutton {
-    display: inline-block;
-    border-radius: 200px;
-    background-color: #f4511e;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 18px;
-    padding: 10px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 0px;
-  }
-  
-  .nbutton span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .nbutton span:after {
-    content: '\00bb   11-NOV-2021';
-    position: relative;
-    opacity: 0;
-    top: 0;
-    right: -5px;
-    transition: 0.5s;
-  }
-  
-  .nbutton:hover span {
-    padding-right: 20px;
-  }
-  
-  .nbutton:hover span:after {
-    opacity: 1;
-    right: 20;
-  }
-  
-  /* data valima button */
-  /* date button */
-  .nbutton {
+   .nbutton {
     display: inline-block;
     border-radius: 200px;
     background: url(https://images.unsplash.com/photo-1526500141527-9e9b0ae48227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
-    /* background-color: #f4511e; */
-    border: none;
+    /* background-color: darkslateblue; */
+    border: 2px solid #ef8fbf;
     color: #FFFFFF;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     padding: 10px;
-    width: 250px;
+    width: 150px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 0px;
   }
   
-  .nbutton span {
+  /* .nbutton span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
+  } */
   
-  .nbutton span:after {
-    content: '\00bb   11-NOV-2021';
-    position: relative;
+  /* .nbutton span:after {
+    content: '\039e  11-NOV-2021';
+    position: absolute;
     opacity: 0;
     top: 0;
     right: -5px;
     transition: 0.5s;
   }
-  
+   */
   .nbutton:hover span {
     padding-right: 20px;
+    display:none;
+
   }
-  
-  .nbutton:hover span:after {
-    opacity: 1;
-    right: 20;
+   
+  .nbutton:hover:before {
+    content:"11-NOV-2021"
   }
 
   /* data valima button */
   /* date button */
   .vbutton {
     display: inline-block;
-    border-radius: 200px;
+    border-radius: 400px;
     background: url(https://images.unsplash.com/photo-1526500141527-9e9b0ae48227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
     /* background-color: #f4511e; */
-    border: none;
+    border: 2px solid #ef8fbf;
     color: #FFFFFF;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     padding: 8.5px;
-    width: 250px;
+    width: 150px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 0px;
   }
   
-  .vbutton span {
+  /* .vbutton span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
+  } */
   
-  .vbutton span:after {
-    content: '\00bb   14-NOV-2021';
+  /* .vbutton span:after {
+    content: '\039e   14-NOV-2021';
     position: relative;
     opacity: 0;
     top: 0;
     right: -5px;
     transition: 0.5s;
-  }
+  } */
   
   .vbutton:hover span {
     padding-right: 20px;
+    display:none;
   }
   
-  .vbutton:hover span:after {
+  .vbutton:hover:before {
+    content:"14-NOV-2021"
+  }
+  /* .vbutton:hover span:after {
     opacity: 1;
     right: 20;
-  }
+  } */

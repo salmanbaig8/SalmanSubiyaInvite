@@ -2,24 +2,14 @@
 import './App.css';
 // import bg from './bg-recep-white.jpg';
 import Iframe from './components/iframe.js';
-import Aframe from './components/audio.js';
 import bg from './hand-in-hand.jpg';
 import desktopVideo  from './desktopVideo.mp4';
 import tabletVideo  from './tabletVideo.mp4';
 import mobileVideo  from './mobileVideo.mp4';
 import androidVideo from './androidVideo.mp4';
 import aud  from './Tasbih_Ayisha Abdul Basith.mp3'
-import sil  from './silence.mp3'
 import React, { useState, useEffect , useRef} from 'react';
-import { Transition, CSSTransition, SwitchTransition  } from 'react-transition-group';
-import ReactAudioPlayer from 'react-audio-player';
-import AudioPlayer from 'react-h5-audio-player';
-// import { css, jsx } from '@emotion/react'
-// import styled from '@emotion/styled'
-import {Button} from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
-// import { Redirect } from 'react-router';
-import { ReactVideo } from "reactjs-media";
+import { Transition } from 'react-transition-group';
 
 function App() {
 
@@ -87,14 +77,6 @@ function App() {
     </Transition>
   );
 
- 
-  // const Player = () => (
-  //   <AudioPlayer
-  //     autoPlay
-  //     src={aud}
-  //     onPlay={e => console.log("onPlay")}
-  //   />
-  // );
 
   useEffect(() => {
     const audioEl = document.getElementsByClassName("audio-element")[0]
@@ -109,8 +91,8 @@ function App() {
    
   const getVideoSrc = width => {
     if (width >= 1080) return desktopVideo;
-    if (width >= 720 && width <= 1079) return tabletVideo;
-    if (width >= 480 && width <= 719 ) return mobileVideo;
+    if (width >= 720 ) return tabletVideo;
+    if (width >= 480 ) return mobileVideo;
     return androidVideo;
   };
 
@@ -236,12 +218,7 @@ function App() {
         </audio>
       </div>
 
-        {/* <div class="bottom-left">Bottom Left</div>
-          <div class="top-left">Top Left</div>
-          <div class="top-right">Top Right</div>
-          <div class="bottom-right">Bottom Right</div>
-          <div class="centered">Centered</div> */}
-
+      
     <div class="bottom-left">
       <NikahLocation in={nikah} />
         <button class="button button1"
@@ -265,21 +242,17 @@ function App() {
           Valima Location
         </button>
     </div>
-           
-    {/* <div class="bottom-left">
-      <button class="nbutton" style="vertical-align:middle"><span>Nikah </span></button>
-    </div> */}
-
-    {/* <div class="bottom-right">
-      <button class="vbutton" style="vertical-align:middle"><span>Valima </span></button>
-    </div> */}
-    {/* style={{'position': 'absolute', 'top':'500px'}} */}
+    
     <div class="top-left" >
            <button  class="nbutton" style={{'vertical-align':'middle'}}><span style={{'textAlign':'center'}}>Nikah </span></button>
     </div>
 
-    <div class="top-right">
+    {/* <div class="top-right">
            <button  class="vbutton" style={{'vertical-align':'middle'}}><span>Valima </span></button>
+    </div> */}
+
+    <div class="top-right">
+    <button class="vbutton"><span>3 replies</span></button>
     </div>
 
     </div>
