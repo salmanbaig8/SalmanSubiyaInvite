@@ -247,13 +247,13 @@ function App() {
            <button  class="nbutton" style={{'vertical-align':'middle'}}><span style={{'textAlign':'center'}}>Nikah </span></button>
     </div>
 
-    {/* <div class="top-right">
-           <button  class="vbutton" style={{'vertical-align':'middle'}}><span>Valima </span></button>
-    </div> */}
-
     <div class="top-right">
-    <button class="vbutton"><span>3 replies</span></button>
+           <button  class="vbutton" style={{'vertical-align':'middle'}}><span>Valima </span></button>
     </div>
+
+    {/* <div class="top-right">
+    <button class="vbutton"><span>3 replies</span></button>
+    </div> */}
 
     </div>
 
