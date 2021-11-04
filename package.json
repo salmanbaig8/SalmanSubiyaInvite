@@ -6,10 +6,17 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "deploy-aws-s3-cloudfront": "^3.5.0",
+    "install": "^0.13.0",
+    "npm": "^8.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-native": "^0.66.1",
+    "react-native-web": "^0.17.5",
+    "react-player": "^2.9.0",
     "react-scripts": "^4.0.3",
     "react-transition-group": "^4.4.2",
+    "reactjs-media": "^2.1.4",
     "web-vitals": "^1.1.2",
     "yarn": "^1.22.17"
   },
@@ -17,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "aws s3 sync build/ s3://salmansubiya-inv"
   },
   "resolutions": {
     "**/@babel/runtime": "7.5.0"

@@ -10,6 +10,8 @@ import androidVideo from './androidVideo.mp4';
 import aud  from './Tasbih_Ayisha Abdul Basith.mp3'
 import React, { useState, useEffect , useRef} from 'react';
 import { Transition } from 'react-transition-group';
+// import { ReactVideo } from "reactjs-media";
+
 
 function App() {
 
@@ -18,6 +20,9 @@ function App() {
   
   const [nikah, setNikah] = useState(false);
   const [valima, setValima] = useState(false);
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const [height, setHeight] = React.useState(window.innerHeight);
+  const [scale, setScale] = React.useState({ x: 1, y: 1 });
 
   const defaultStyle = {
     transition: `transform 200ms, opacity 200ms ease`,
@@ -68,7 +73,7 @@ function App() {
         <div
           style={{
             ...defaultStyle,
-            ...transitionStyles[state]
+            ...transitionStyles[state],
           }}
         >
         <Iframe source={valimaUrl} />
@@ -87,25 +92,55 @@ function App() {
       audioEl.pause();
     }
   });
-    
+
+  const canvas = React.useEffect(() => {
+    window.addEventListener("resize", updateWidthAndHeight);
+    return () => window.removeEventListener("resize", updateWidthAndHeight);
+});
+
+// const calculateScaleX = () => canvas.current.clientWidth / scaleWidth;
+// const calculateScaleY = () => canvas.current.clientHeight / scaleHeight;
+
+// const resized = () => {
+//   canvas.current.width = canvas.current.clientWidth;
+//   canvas.current.height = canvas.current.clientHeight;
+//   setScale({ x: calculateScaleX(), y: calculateScaleY() });
+// };
+   
    
   const getVideoSrc = width => {
-    if (width >= 1080) return desktopVideo;
+    if (width >= 1080) return tabletVideo;
     if (width >= 720 ) return tabletVideo;
     if (width >= 480 ) return mobileVideo;
-    return androidVideo;
+    return mobileVideo;
   };
 
   const Video = props => {
     const src = getVideoSrc(window.innerWidth);
     return (
-      <div className="container">
-        <video autoPlay loop muted src={src} />
+      <div className="bgvideo" ref={canvas}>
+        <video 
+        autoPlay 
+        loop 
+        playsInline 
+        preload 
+        muted 
+        src={src}
+        style={{
+          // aspectRatio: width/height,
+          
+        }}
+        width="560" 
+        height="315"
+         />
       </div>
     );
   };
 
-  // scroll
+  const updateWidthAndHeight = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
   
  
 
@@ -115,7 +150,11 @@ function App() {
       <header className="App-header">
       <div className = "head-text">
       <div class="neonText">
-      ‏اَلسَلامُ عَلَيْكُم وَرَحْمَةُ اَللهِ وَبَرَكاتُهُ‎  (Peace Be Upon You)
+      ‏اَلسَلامُ عَلَيْكُم وَرَحْمَةُ اَللهِ وَبَرَكاتُهُ‎
+
+      </div>
+      <div class="neonText">
+      (Peace Be Upon You)
 
       </div>
        
@@ -123,8 +162,12 @@ function App() {
         {/* <img src={bg} className="App-logo" alt="background" /> */}
 
           {/* <img src={bg} className="App-logo" alt="Avatar" class="image" /> */}
-          <Video />
           
+          <Video />
+
+          {/* <iframe width="560" height="315" src={mobileVideo} autoplay='1' allow='autoplay' muted loop preload></iframe> */}
+
+
           <div class="overlay">
           <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet"/>
 
@@ -257,7 +300,8 @@ function App() {
 
     </div>
 
-       
+    <div>{`Window width = ${width}`}</div>
+    <div>{`Window height = ${height}`}</div>
 
       </header>
      
