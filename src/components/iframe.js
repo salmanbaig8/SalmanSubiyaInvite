@@ -1,5 +1,5 @@
 import React from 'react';
-import './iframe.css';
+
 const Iframe = ({ source }) => {
 
     if (!source) {
