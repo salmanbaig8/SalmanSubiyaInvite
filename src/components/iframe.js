@@ -9,8 +9,8 @@ const Iframe = ({ source }) => {
     const src = source;     
     return (
         // basic bootstrap classes. you can change with yours.
-        <div className="col-md-12">
-                <iframe width="50%" height="50%" 
+        <div >
+                <iframe width="30%" height="100px" 
                 border="3px solid black" src={src}></iframe>
         </div>
     );

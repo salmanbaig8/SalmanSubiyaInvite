@@ -9,8 +9,7 @@ import mobileVideo  from './mobileVideo.mp4';
 import androidVideo from './androidVideo.mp4';
 import aud  from './Tasbih_Ayisha Abdul Basith.mp3'
 import React, { useState, useEffect , useRef} from 'react';
-import { Transition } from 'react-transition-group';
-// import { ReactVideo } from "reactjs-media";
+import { Transition, CSSTransition} from 'react-transition-group';
 
 
 function App() {
@@ -22,7 +21,8 @@ function App() {
   const [valima, setValima] = useState(false);
   const [width, setWidth] = React.useState(window.innerWidth);
   const [height, setHeight] = React.useState(window.innerHeight);
-  const [scale, setScale] = React.useState({ x: 1, y: 1 });
+  const [ndisplay, setNdisplay] = useState(false);
+  const [vdisplay, setVdisplay] = useState(false);
 
   const defaultStyle = {
     transition: `transform 200ms, opacity 200ms ease`,
@@ -30,8 +30,8 @@ function App() {
   };
 
   const transitionStyles = {
-    entering: { transform: 'scale(1)', opacity: 0 }, 
-    entered: { transform: 'scale(1)', opacity: 1},
+    entering: { appear: 'scale(1)', opacity: 0 }, 
+    entered: { appear: 'scale(1)', opacity: 1},
     exiting: { opacity: 0 },
     exited: { opacity: 0 }
   };
@@ -40,9 +40,9 @@ function App() {
     <Transition
       in={inProp}
       timeout={{
-        appear: 100,   
-        enter: 300,
-        exit: 300
+        appear: 10,   
+        enter: 30,
+        exit: 30
       }}
       mountOnEnter
     >
@@ -93,21 +93,6 @@ function App() {
     }
   });
 
-  const canvas = React.useEffect(() => {
-    window.addEventListener("resize", updateWidthAndHeight);
-    return () => window.removeEventListener("resize", updateWidthAndHeight);
-});
-
-// const calculateScaleX = () => canvas.current.clientWidth / scaleWidth;
-// const calculateScaleY = () => canvas.current.clientHeight / scaleHeight;
-
-// const resized = () => {
-//   canvas.current.width = canvas.current.clientWidth;
-//   canvas.current.height = canvas.current.clientHeight;
-//   setScale({ x: calculateScaleX(), y: calculateScaleY() });
-// };
-   
-   
   const getVideoSrc = width => {
     if (width >= 1080) return tabletVideo;
     if (width >= 720 ) return tabletVideo;
@@ -118,7 +103,7 @@ function App() {
   const Video = props => {
     const src = getVideoSrc(window.innerWidth);
     return (
-      <div className="bgvideo" ref={canvas}>
+      <div  >
         <video 
         autoPlay 
         loop 
@@ -130,24 +115,30 @@ function App() {
           // aspectRatio: width/height,
           
         }}
-        width="560" 
-        height="315"
+        width={width/1.6}
+        height={height/2}
+        // aspectRatio={width/height}
+        
          />
       </div>
     );
   };
 
-  const updateWidthAndHeight = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  };
-  
- 
+  const onNButtonClickHandler = () => {
+    setNdisplay(!ndisplay);
+   };
+
+   const onVButtonClickHandler = () => {
+    setVdisplay(!vdisplay);
+   };
 
   return (
-
     <div className="App">
+
+
       <header className="App-header">
+        
+
       <div className = "head-text">
       <div class="neonText">
       ‏اَلسَلامُ عَلَيْكُم وَرَحْمَةُ اَللهِ وَبَرَكاتُهُ‎
@@ -168,7 +159,7 @@ function App() {
           {/* <iframe width="560" height="315" src={mobileVideo} autoplay='1' allow='autoplay' muted loop preload></iframe> */}
 
 
-          <div class="overlay">
+          <div class="overlay" >
           <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet"/>
 
             {/* <div class="text">‏اَلسَلامُ عَلَيْكُم وَرَحْمَةُ اَللهِ وَبَرَكاتُهُ‎  (Peace Be Upon You)</div> */}
@@ -262,7 +253,7 @@ function App() {
       </div>
 
       
-    <div class="bottom-left">
+    <div class="ngmap">
       <NikahLocation in={nikah} />
         <button class="button button1"
           onClick={() => {
@@ -274,7 +265,7 @@ function App() {
         </button>
     </div>
    
-    <div class="bottom-right">
+    <div>
       <ValimaLocation in={valima} />
         <button class="button button2"
           onClick={() => {
@@ -294,19 +285,40 @@ function App() {
            <button  class="vbutton" style={{'vertical-align':'middle'}}><span>Valima </span></button>
     </div>
 
-    {/* <div class="top-right">
-    <button class="vbutton"><span>3 replies</span></button>
-    </div> */}
-
+    {/* <div class="bottom-left" >
+           <button  class="nvbutton" style={{'vertical-align':'middle'}}><span style={{'textAlign':'center'}}>Nikah Venue </span></button>
     </div>
 
-    <div>{`Window width = ${width}`}</div>
-    <div>{`Window height = ${height}`}</div>
+    <div class="bottom-right">
+           <button  class="vvbutton" style={{'vertical-align':'middle'}}><span>Valima Venue</span></button>
+    </div> */}
+
+    <div className="bottom-left">
+     {ndisplay && <div className="nikah-venue">M.K Convention Center
+     Thanniruhalla
+     B.M.Road Hassan</div>}
+      <button class="nvbutton" onClick={onNButtonClickHandler}>Nikah Venue</button>
+    </div>
+
+    <div className="bottom-right">
+     {vdisplay && <div className="valima-venue">The Crystal Palace Convention center
+    Thanisandra Main Road
+    R.K. Hegde Nagar Bengaluru</div>}
+      <button class="vvbutton" onClick={onVButtonClickHandler}>Valima Venue</button>
+    </div>
+    </div>
+
+    
+
+
+
+    {/* <div>{`Window width = ${width}`}</div>
+    <div>{`Window height = ${height}`}</div> */}
 
       </header>
      
       
-
+      
       </div>
 
 
