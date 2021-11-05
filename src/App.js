@@ -2,7 +2,7 @@
 import './App.css';
 // import bg from './bg-recep-white.jpg';
 import Iframe from './components/iframe.js';
-import bg from './hand-in-hand.jpg';
+import bg from './hand-in-hand_v1.jpg';
 import desktopVideo  from './desktopVideo.mp4';
 import tabletVideo  from './tabletVideo.mp4';
 import mobileVideo  from './mobileVideo.mp4';
@@ -101,28 +101,39 @@ function App() {
   };
 
   const Video = props => {
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
     const src = getVideoSrc(window.innerWidth);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
     return (
-      <div  >
+      <div  className="container">
+
+      <img
+        src={bg}
+        className="video-thumb tiny"
+        alt="thumb"
+        style={{ opacity: isVideoLoaded ? 0 : 1 }}
+      />
+
         <video 
         autoPlay 
         loop 
-        playsInline 
         preload 
         muted 
         src={src}
-        style={{
-          // aspectRatio: width/height,
-          
-        }}
-        width={width/1.6}
-        height={height/2}
+        playsInline
+        onLoadedData={onLoadedData}
+        style={{ opacity: isVideoLoaded ? 1 : 0 }}
+        width="380"
         // aspectRatio={width/height}
         
          />
       </div>
     );
   };
+ 
 
   const onNButtonClickHandler = () => {
     setNdisplay(!ndisplay);
@@ -134,7 +145,7 @@ function App() {
 
   return (
     <div className="App">
-
+      
 
       <header className="App-header">
         

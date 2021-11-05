@@ -47,21 +47,7 @@
   height: auto;
 } */
 
-.bgvideo {
-  position:relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 
-  /* bottom:100px; */
-  
-}
-
-/* video {
-    width: 560 !important;
-    height: 315 !important;
-
-  } */
 
 .container {
   position: relative;
@@ -80,7 +66,7 @@
 
 .overlay {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   left: 100;
   right: 100;
   background-color: rgb(144, 134, 153);
@@ -99,12 +85,30 @@
   
 }
 
+.video {
+  width: 80%;
+  height: auto;
+}
+
+.video-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: opacity 400ms ease 0ms;
+}
+.tiny {
+  filter: blur(20px);
+  transform: scale(1.1);
+  transition: visibility 0ms ease 400ms;
+}
 
 .text {
   color: cornsilk;
   font-size: 15px;
   position: relative;
-  top: 25%;
+  top: 15%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%); 
@@ -119,7 +123,7 @@
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 601px) {
     .text {
-      font-size: 20px;
+      font-size: 13px;
     }
   }
   
@@ -158,6 +162,21 @@
   font-style: oblique;
   font-weight: bold;
   font-size: medium;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 601px) {
+  .neonText {
+    font-size: large;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 400px) {
+  .neonText {
+    font-size: small;
+  }
 }
 
 /* Additional styling */
@@ -181,13 +200,13 @@
 
 @-webkit-keyframes rotateFlower {
     to {
-        transform: rotateX(360deg);
+        transform: rotateX(340deg);
     }
 }
 
 @keyframes rotateFlower {
     to {
-        transform: rotateY(360deg);
+        transform: rotateY(340deg);
     }
 }
 
@@ -617,19 +636,19 @@
     background-color: #ef8fa3;
 }
 
-.leaf:nth-child(59) {
+/* .leaf:nth-child(59) {
     --leafAngle: 1770deg;
     -webkit-animation-delay: -11.8s;
     animation-delay: -11.8s;
     background-color: #ef8f99;
-}
+} */
 
-.leaf:nth-child(60) {
+/* .leaf:nth-child(60) {
     --leafAngle: 1800deg;
     -webkit-animation-delay: -12s;
     animation-delay: -12s;
     background-color: #ef8f8f;
-}
+} */
 
 @-webkit-keyframes leafOpen {
     from {
@@ -674,7 +693,7 @@
 /* Bottom left text */
 .bottom-left {
     position: fixed;
-    bottom: 8px;
+    bottom: 58px;
     left: 16px;
     /* transition: transform .2s; Animation*/
     /* width: 100px;
@@ -688,15 +707,15 @@
   /* Bottom right text */
   .bottom-right {
     position: fixed;
-    bottom: 8px;
+    bottom: 58px;
     right: 16px;
     
   }
 
   .valima-venue{
     position: fixed;
-    bottom: 38px;
-    right: 9px;
+    bottom: 88px;
+    right: 8px;
     text-align: center;
     font-size: 11px;
     border: 2px solid orchid;
@@ -708,13 +727,10 @@
 
   .nikah-venue{
     position: fixed;
-    bottom: 58px;
-    left: 16px;
-    bottom: 38px;
-    right: 16px;
-    left: 10px;
+    left: 6px;
+    bottom: 88px;
     text-align: center;
-    font-size: 10px;
+    font-size: 13px;
     border: 2px solid orchid;
     border-radius: 10px;
     word-wrap: break-word;
@@ -889,8 +905,8 @@
     border: 2px solid #ef8fbf;
     color: #FFFFFF;
     text-align: center;
-    font-size: 10px;
-    padding: 8.5px;
+    font-size: 12px;
+    padding: 10px;
     width: 80px;
     height: 30px;
     margin: 0 auto;
@@ -900,6 +916,7 @@
     transition: all 0.5s;
     cursor: pointer;
     margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
   }
     
   /* .nvbutton:hover span {
@@ -920,8 +937,8 @@
     border: 2px solid #ef8fbf;
     color: #FFFFFF;
     text-align: center;
-    font-size: 10px;
-    padding: 8.5px;
+    font-size: 12px;
+    padding: 10px;
     width: 80px;
     height: 30px;
     margin: 0 auto;
@@ -931,6 +948,8 @@
     /* transition: all 0.5s; */
     cursor: pointer;
     margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
   }
     
   /* .vvbutton:hover span {
